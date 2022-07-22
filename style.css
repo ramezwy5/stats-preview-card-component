@@ -23,29 +23,30 @@ html{
     background-color: var(--main-bg);
 }
 .container{
-    width: 50%;
+    width: 60%;
     background-color: var(--card-bg);
     margin: 10% auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row-reverse;
     border-radius: 10px;
     overflow: clip;
 }
-
+.image, .content{
+    width: 50%;
+}
 .image > img{
     width: 100%;
-    height: 100%;
     background-size: cover;
     filter: sepia() saturate(451%) hue-rotate(230deg) opacity(0.3);
 }
 
 .content{
-    padding: 15px;
+    padding: 40px;
     text-align: center;
     
 }
 .content .title{
-    padding: 15px 0 0;
+    padding: 15px 0;
     font-weight: 700;
     font-size: xx-large;
 }
@@ -60,7 +61,6 @@ html{
 }
 .content .info p{
     color: var(--stat-color);
-    line-height: 1.5;
     
 }
 
@@ -86,30 +86,46 @@ html{
     color: var(--stat-color);
 }
 
-@media (min-width: 375px) and (max-width: 991px) {
+@media (min-width: 375px) and (max-width: 1440px) {
     .container{
-        width: calc(100% - 60px);
+        height: 530px;
+        flex-direction: column;
+        align-items: center;
     }
-    
+    .image, .content{
+        width: 100%;
+    }
     .image{
-        grid-column: 1/-1;
-        grid-row: 1/2;        
+        height: 190px
+    }
+    .image > img{
+        background-size: cover;
     }
     .content{
-        grid-column: 1/-1;
-        grid-row: 2/3;
+    padding: 10px;
+    justify-content: center;
     }
     .content .title{
+        font-size: 22px;
+        padding: 10px 0;
+    }
+    .content .info{
+        font-size: 0.65rem;
         text-align: center;
-        font-size: 1.85em;
+        padding: 0;
     }
     .content .chart{
         flex-direction: column;
-    }
-    .content .info p{
-        text-align: center;
+        margin: 3px;
     }
     .content .chart p{
-        padding-bottom: 20px;
+        padding: 6px 0;
+    }
+}
+@media (min-width: 1441px){
+    .container{
+        aspect-ratio: 2.7;
+        flex-direction: row-reverse;
+        border-radius: 10px;
     }
 }
